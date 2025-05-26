@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Docker Counter App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #eef4ff;
+      color: #1a1a1a;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero {
+      background: #dbeafe;
+      padding: 3rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #1e3a8a;
+    }
+
+    h2 {
+      color: #2563eb;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .cta {
+      background: #2563eb;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1.5rem;
+    }
+
+    .section {
+      margin-top: 4rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section h3 {
+      color: #1d4ed8;
+      font-size: 1.6rem;
+    }
+
+    .section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .section li {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h2>WELCOME TO THE</h2>
+    <h1>Docker Counter App</h1>
+    <p>This app is built using a <strong>multi-container Docker setup</strong> with Flask, Redis, and NGINX.</p>
+    <p>You’ve visited this page <strong>{{ count }}</strong> times.</p>
+    <a href="/count" class="cta">Start Counting Visits</a>
+  </div>
+
+  <div class="section">
+    <h3>How It Works 🛠️</h3>
+    <ul>
+      <li><strong>Flask</strong> - Handles the web logic</li>
+      <li><strong>Redis</strong> - Stores your visit count in memory</li>
+      <li><strong>NGINX</strong> - Balances traffic across multiple Flask containers</li>
+      <li><strong>Dockerfile</strong> - Packages the app</li>
+      <li><strong>Docker Compose</strong> - Connects everything using one config file</li>
+      <li><strong>Docker Network</strong> - Lets services communicate using container names</li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visit Count - Docker Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f0f4ff;
+      color: #1a1a1a;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .container {
+      background: #dbeafe;
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #1e3a8a;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+
+    ul {
+      text-align: left;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 1.2rem 0;
+      font-size: 1.05rem;
+      background: #e0f2fe;
+      border-left: 6px solid #3b82f6;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+    }
+
+    .cta {
+      background: #2563eb;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Your Visit Count: {{ count }}</h1>
+    <p>This visit is powered by a full multi-container Docker app I built from scratch. Here's how I did it:</p>
+
+    <ul>
+      <li><strong>Containers 🧱</strong> – I learned that each service (Flask, Redis, NGINX) runs inside its own isolated container. They act like lightweight, self-contained virtual machines.</li>
+
+      <li><strong>Dockerfile 📦</strong> – I used a Dockerfile to build an image for my Flask app. It defines exactly what environment, packages, and code are needed to run it.</li>
+
+      <li><strong>Docker Image → Container 🚀</strong> – The image is like a blueprint. When you run it, Docker creates a live container that can serve traffic, process requests, or connect to other services.</li>
+
+      <li><strong>Docker Network 🌐</strong> – I learned that services can talk to each other using Docker’s internal network. My Flask app connects to Redis using the container name as a hostname — no IPs needed.</li>
+
+      <li><strong>docker-compose.yml 🧩</strong> – I stitched everything together with one file. This composer file lets me define all services (web, redis, nginx) and how they interact — including volumes and networks.</li>
+
+      <li><strong>Flask 🔥</strong> – The Flask app runs in each container and increments the visit count. Each container runs the same code, but they all share data via Redis.</li>
+
+      <li><strong>Redis 🧠</strong> – Redis acts like memory shared between containers. Every time you visit this page, a counter stored in Redis is updated.</li>
+
+      <li><strong>NGINX 🚦</strong> – I added NGINX as a reverse proxy. It handles incoming traffic and load balances it across multiple Flask containers, so no single container gets overwhelmed.</li>
+    </ul>
+
+    <p>This wasn’t just a visit counter — it was a crash course in modern DevOps practices, and now I can say I’ve built and scaled a multi-service containerized app from scratch.</p>
+
+    <a href="/" class="cta">Back to Home</a>
+  </div>
+
+</body>
+</html>
